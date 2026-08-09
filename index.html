@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A modern responsive weather application powered by Open-Meteo.">
+  <title>Atmos — Weather App</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-theme="clear">
+  <div class="ambient ambient-one"></div>
+  <div class="ambient ambient-two"></div>
+
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Atmos home">
+        <span class="brand-mark">✦</span>
+        <span>Atmos</span>
+      </a>
+
+      <div class="live-status">
+        <span class="live-dot"></span>
+        <span id="updatedText">Live weather</span>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-copy">
+          <span class="eyebrow">WEATHER AT A GLANCE</span>
+          <h1>Know the sky.<br><span>Plan your day.</span></h1>
+          <p>Real-time weather conditions for wherever you are, with a clean view of what matters.</p>
+        </div>
+
+        <form class="search-panel" id="searchForm">
+          <div class="search-input-wrap">
+            <span class="search-icon" aria-hidden="true">⌕</span>
+            <input
+              type="text"
+              id="cityInput"
+              placeholder="Search a city..."
+              autocomplete="off"
+              aria-label="Search city"
+            >
+          </div>
+          <button class="primary-btn" type="submit">
+            <span>Search</span>
+            <span aria-hidden="true">→</span>
+          </button>
+          <button class="location-btn" id="locationBtn" type="button" aria-label="Use my location" title="Use my location">
+            ◎
+          </button>
+        </form>
+      </section>
+
+      <div class="status" id="status" aria-live="polite">
+        <div class="loading-orb"></div>
+        <div>
+          <strong id="statusTitle">Detecting your location</strong>
+          <p id="statusMessage">Getting the latest weather...</p>
+        </div>
+      </div>
+
+      <section class="weather-dashboard" id="weatherCard" aria-live="polite">
+        <div class="weather-main-card">
+          <div class="weather-top">
+            <div>
+              <span class="section-label">CURRENT CONDITIONS</span>
+              <h2 id="locationName">Your Location</h2>
+              <p class="location-detail" id="locationDetail">—</p>
+            </div>
+            <div class="date-block">
+              <span id="currentDate">—</span>
+              <strong id="currentTime">—</strong>
+            </div>
+          </div>
+
+          <div class="main-weather">
+            <div class="condition-visual" id="weatherVisual" aria-hidden="true">☀️</div>
+
+            <div class="temperature-wrap">
+              <div class="temperature" id="temperature">--°</div>
+              <div class="condition" id="condition">Loading...</div>
+              <div class="feels-like" id="feelsLike">Feels like --°</div>
+            </div>
+          </div>
+
+          <div class="weather-bottom">
+            <div class="mini-message">
+              <span class="sparkle">✦</span>
+              <span id="weatherMessage">Weather looks good for getting on with your day.</span>
+            </div>
+            <div class="coordinates" id="coordinates">—</div>
+          </div>
+        </div>
+
+        <div class="stats-grid">
+          <article class="stat-card">
+            <div class="stat-icon humidity-icon">◌</div>
+            <div>
+              <span>Humidity</span>
+              <strong id="humidity">--%</strong>
+            </div>
+          </article>
+
+          <article class="stat-card">
+            <div class="stat-icon wind-icon">↝</div>
+            <div>
+              <span>Wind speed</span>
+              <strong id="windSpeed">--</strong>
+            </div>
+          </article>
+
+          <article class="stat-card">
+            <div class="stat-icon direction-icon">◎</div>
+            <div>
+              <span>Wind direction</span>
+              <strong id="windDirection">--</strong>
+            </div>
+          </article>
+
+          <article class="stat-card">
+            <div class="stat-icon rain-icon">⌁</div>
+            <div>
+              <span>Precipitation</span>
+              <strong id="precipitation">--</strong>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="tip-card">
+        <div class="tip-icon">✧</div>
+        <div>
+          <span class="section-label">QUICK NOTE</span>
+          <p>Weather data updates in real time. Search another city or use your location anytime.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <span>Atmos Weather</span>
+      <span class="footer-dot">•</span>
+      <span>Data from <a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo</a></span>
+      <span class="footer-dot">•</span>
+      <span>Built with HTML, CSS & JavaScript</span>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
